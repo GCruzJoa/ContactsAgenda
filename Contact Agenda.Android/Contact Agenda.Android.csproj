@@ -89,9 +89,9 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Contact Agenda\Contact Agenda.csproj">
-      <Project>{0C549C90-148E-48DE-BE3E-1ECCF22D1688}</Project>
-      <Name>Contact Agenda</Name>
+    <ProjectReference Include="..\Contact Agenda\Contacts Agenda.csproj">
+      <Project>{00455A8C-7852-4179-B075-09A7DEC56925}</Project>
+      <Name>Contacts Agenda</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
