@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contacts_Agenda.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace Contact_Agenda
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ContactsHomePage();
         }
 
         protected override void OnStart()
