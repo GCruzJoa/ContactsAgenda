@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact Agenda.Android", "Contact Agenda.Android\Contact Agenda.Android.csproj", "{38643017-B0AA-4961-B75A-A3504E840A06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts Agenda.Android", "Contact Agenda.Android\Contacts Agenda.Android.csproj", "{38643017-B0AA-4961-B75A-A3504E840A06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact Agenda.iOS", "Contact Agenda.iOS\Contact Agenda.iOS.csproj", "{932D86F3-49F9-4167-8901-E2846146EF5A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts Agenda.iOS", "Contact Agenda.iOS\Contacts Agenda.iOS.csproj", "{932D86F3-49F9-4167-8901-E2846146EF5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts Agenda", "Contact Agenda\Contacts Agenda.csproj", "{00455A8C-7852-4179-B075-09A7DEC56925}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contacts Agenda", "Contact Agenda\Contacts Agenda.csproj", "{00455A8C-7852-4179-B075-09A7DEC56925}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

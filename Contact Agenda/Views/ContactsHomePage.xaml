@@ -3,7 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contacts_Agenda.Views.ContactsHomePage">
 
-    <ListView ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact}">
+    <ListView ItemsSource="{Binding Contacts}" 
+              IsGroupingEnabled="True"
+              GroupDisplayBinding="{Binding Key}"
+              IsPullToRefreshEnabled="True"
+              IsRefreshing="{Binding IsBusy}"
+              RefreshCommand="{Binding RefreshCommand}"
+              SelectedItem="{Binding SelectedContact}"
+              HasUnevenRows="True"
+              SeparatorColor="Red"
+              SeparatorVisibility="Default"
+              Footer="">
+        
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ImageCell ImageSource="{Binding Image}" Text="{Binding Name}" Detail="{Binding PhoneNumber}"/>
