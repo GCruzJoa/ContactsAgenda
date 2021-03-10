@@ -4,8 +4,7 @@
              xmlns:controls="clr-namespace:Contacts_Agenda.Controls"
              x:Class="Contacts_Agenda.Views.ContactsHomePage"
              x:Name="homePage"
-             Title="Contacts"
-             NavigationPage.IconColor="Red">
+             Title="Contacts">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary"
@@ -15,7 +14,7 @@
     </ContentPage.ToolbarItems>
     
     <ListView ItemsSource="{Binding Contacts}" 
-              IsPullToRefreshEnabled="True"
+              IsPullToRefreshEnabled="False"
               HasUnevenRows="True"
               SeparatorColor="Red"
               SeparatorVisibility="Default"
