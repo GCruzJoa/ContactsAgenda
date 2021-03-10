@@ -1,5 +1,6 @@
 ﻿using Contact_Agenda;
 using Contacts_Agenda.Models;
+using Contacts_Agenda.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,83 +8,81 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Contacts_Agenda.ViewModels
 {
     public class ContactsHomeViewModel : BaseViewModel
     {
-        public ObservableCollection<ContactGroupCollection> Contacts { get; }
+        public ObservableCollection<Contact> Contacts { get; }
 
-        public ICommand SelectedContactCommand { get; }
+        public ICommand AddCommand { get; }
 
-        public ICommand AddContact { get; }
+        public ICommand MoreCommand { get; }
 
-        public bool IsBusy { get; set; }
-
-        public ICommand RefreshCommand { get; }
-
-        private Contact _contact;
-        public Contact SelectedContact
-        {
-            get
-            {
-                return _contact;
-            }
-            set
-            {
-                _contact = value;
-                if (_contact != null)
-                {
-                    SelectedContactCommand.Execute(_contact);
-                }                
-            }
-        }
+        public ICommand DeleteCommand { get; }
+       
 
         public ContactsHomeViewModel()
         {
-            Contacts = new ObservableCollection<ContactGroupCollection>()
+            Contacts = new ObservableCollection<Contact>
             {
-                new ContactGroupCollection("Favoritos")
-                {
-                    new Contact("Gabriel", "6856", "fastFood.png"),
-                    new Contact("Katherine", "4576", "fastFood.png")
-                },
-                new ContactGroupCollection("Contactos")
-                {
-                    new Contact("Javier", "09821", "fastFood.png"),
-                    new Contact("Jaydi", "2376", "fastFood.png")
-                }
+                //new Contact("Gabriel", "8295566856"),
+                //new Contact("Katherine", "8294545656"),
+                //new Contact("Javier", "8294545656"),
+                //new Contact("Jaydi", "8494545656")
             };
                        
-            SelectedContactCommand = new Command<Contact>(OnContactSelected);
-            AddContact = new Command(OnAddContactSelected);
-            RefreshCommand = new Command(OnAddContactSelected);
+            AddCommand = new Command(OnAddContact);
+            MoreCommand = new Command<Contact>(OnMoreTapped);
+            DeleteCommand = new Command<Contact>(OnDeleteContact);
         }
 
-        private async void OnAddContactSelected()
+        private async void OnMoreTapped(Contact contact)
         {
-            IsBusy = true;
-            await Task.Delay(2000);
-
-            var contactGroup = Contacts.FirstOrDefault(prop => prop.Key == "Favoritos");
-            if (contactGroup == null)
+            string option = await App.Current.MainPage.DisplayActionSheet(null, "Cancel", null, "Call +" + contact.PhoneNumber, "Edit");
+            if (option == "Call +" + contact.PhoneNumber)
             {
-                Contacts.Add(new ContactGroupCollection("Favoritos")
+                try
                 {
-                    new Contact("Alejandro", "341320","fastFood.png")
-                });
+                    PhoneDialer.Open(contact.PhoneNumber);
+                }
+                catch (Exception)
+                {
+                    await App.Current.MainPage.DisplayAlert("Alert", "Was not possible to call the contact", "Ok");
+                }
             }
-            else
+            else if (option == "Edit")
             {
-                contactGroup.Add(new Contact("Alejandro", "341320", "fastFood.png"));
-            }            
-            IsBusy = false;
+                int newIndex = Contacts.IndexOf(contact);
+                var name = await App.Current.MainPage.DisplayPromptAsync("Add Contact", "Type the new contact's name", "Ok");
+                var phoneNumber = await App.Current.MainPage.DisplayPromptAsync("Add Number", "Type the new contact's number", "Ok", keyboard: Keyboard.Numeric);
+                OnDeleteContact(contact);
+                                
+                Contacts.Add(new Contact(name, phoneNumber));
+                int oldIndex = Contacts.Count - 1;
+
+                Contacts.Move(oldIndex, newIndex);
+            }
         }
 
-        private async void OnContactSelected(Contact contact)
+        private void OnDeleteContact(Contact contact)
         {
-            await App.Current.MainPage.DisplayAlert("Contact", contact.Name, "Ok");
+            Contacts.Remove(contact);
         }
+
+        private async void OnAddContact()
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new AddContactPage(Contacts));
+            //var name = await App.Current.MainPage.DisplayPromptAsync("Add Contact", "Type the new contact's name", "Ok");
+            //var phoneNumber = await App.Current.MainPage.DisplayPromptAsync("Add Number", "Type the new contact's number", "Ok", keyboard: Keyboard.Numeric);
+            //Contacts.Add(new Contact(name, phoneNumber));
+        }
+
+        //private async void OnContact(Contact contact)
+        //{
+        //    await App.Current.MainPage.DisplayAlert("Contact", contact.Name, "Ok");
+        //}
     }
 }

@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
-namespace Contacts_Agenda.Models
+namespace Contacts_Agenda.Models 
 {
-    public class Contact
+    public class Contact : INotifyPropertyChanged
     {
-        public Contact(string name, string phoneNumber, string image)
+        public Contact(string name, string phoneNumber)
         {
             Name = name;
             PhoneNumber = phoneNumber;
-            Image = image;
         }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
-        public string Image { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

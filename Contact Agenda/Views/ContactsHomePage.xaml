@@ -1,28 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Contacts_Agenda.Views.ContactsHomePage">
+             xmlns:controls="clr-namespace:Contacts_Agenda.Controls"
+             x:Class="Contacts_Agenda.Views.ContactsHomePage"
+             x:Name="homePage"
+             Title="Contacts">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     Text="Add"
+                     Priority="0"
+                     Command="{Binding AddCommand}"/>
+    </ContentPage.ToolbarItems>
+    
     <ListView ItemsSource="{Binding Contacts}" 
-              IsGroupingEnabled="True"
-              GroupDisplayBinding="{Binding Key}"
               IsPullToRefreshEnabled="True"
-              IsRefreshing="{Binding IsBusy}"
-              RefreshCommand="{Binding RefreshCommand}"
-              SelectedItem="{Binding SelectedContact}"
               HasUnevenRows="True"
               SeparatorColor="Red"
               SeparatorVisibility="Default"
+              ItemSelected="ListView_ItemSelected"
+              CachingStrategy="RecycleElement"
+              Margin="20"
               Footer="">
         
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ImageCell ImageSource="{Binding Image}" Text="{Binding Name}" Detail="{Binding PhoneNumber}"/>
+                <ViewCell>
+                    <controls:ItemView/>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="More" Command="{Binding Source={x:Reference homePage}, Path=BindingContext.MoreCommand}" CommandParameter="{Binding}"/>
+                        <MenuItem Text="Delete" Command="{Binding Source={x:Reference homePage}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding}"/>
+                    </ViewCell.ContextActions>
+                </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
-
-        <ListView.Header>
-            <Button Text="Add" Command="{Binding AddContact}"/>
-        </ListView.Header>
     </ListView>
 </ContentPage>

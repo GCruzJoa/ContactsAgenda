@@ -3,6 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contact_Agenda.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="tittleLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="DarkGray"/>
+            </Style>
 
+            <Style x:Key="detailLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Subtitle"/>
+                <Setter Property="TextColor" Value="LightGray"/>
+            </Style>
+
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="Body"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="Red"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
