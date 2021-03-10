@@ -7,12 +7,12 @@
             <Style x:Key="tittleLabelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="Large"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="TextColor" Value="DarkGray"/>
+                <Setter Property="TextColor" Value="Black"/>
             </Style>
 
             <Style x:Key="detailLabelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="Subtitle"/>
-                <Setter Property="TextColor" Value="LightGray"/>
+                <Setter Property="TextColor" Value="Black"/>
             </Style>
 
             <Style x:Key="buttonStyle" TargetType="Button">

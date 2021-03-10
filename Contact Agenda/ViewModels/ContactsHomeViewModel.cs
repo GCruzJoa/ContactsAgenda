@@ -37,8 +37,8 @@ namespace Contacts_Agenda.ViewModels
 
         private async void OnMoreTapped(Contact contact)
         {
-            string option = await App.Current.MainPage.DisplayActionSheet(null, "Cancel", null, "Call +" + contact.PhoneNumber, "Edit");
-            if (option == "Call +" + contact.PhoneNumber)
+            string optionSelected = await App.Current.MainPage.DisplayActionSheet(null, "Cancel", null, "Call +" + contact.PhoneNumber, "Edit");
+            if (optionSelected == "Call +" + contact.PhoneNumber)
             {
                 try
                 {
@@ -49,11 +49,11 @@ namespace Contacts_Agenda.ViewModels
                     await App.Current.MainPage.DisplayAlert("Alert", "Was not possible to call the contact", "Ok");
                 }
             }
-            else if (option == "Edit")
+            else if (optionSelected == "Edit")
             {
                 int newIndex = Contacts.IndexOf(contact);
-                var name = await App.Current.MainPage.DisplayPromptAsync("Add Contact", "Type the new contact's name", "Ok");
-                var phoneNumber = await App.Current.MainPage.DisplayPromptAsync("Add Number", "Type the new contact's number", "Ok", keyboard: Keyboard.Numeric);
+                var name = await App.Current.MainPage.DisplayPromptAsync("Edit Name", "Type the contact's new name", "Ok");
+                var phoneNumber = await App.Current.MainPage.DisplayPromptAsync("Edit Number", "Type the contact's new number", "Ok", keyboard: Keyboard.Numeric);
                 OnDeleteContact(contact);
                                 
                 Contacts.Add(new Contact(name, phoneNumber));

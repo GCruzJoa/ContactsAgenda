@@ -4,7 +4,8 @@
              xmlns:controls="clr-namespace:Contacts_Agenda.Controls"
              x:Class="Contacts_Agenda.Views.ContactsHomePage"
              x:Name="homePage"
-             Title="Contacts">
+             Title="Contacts"
+             NavigationPage.IconColor="Red">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary"
