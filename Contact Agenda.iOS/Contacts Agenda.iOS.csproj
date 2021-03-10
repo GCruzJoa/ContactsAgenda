@@ -133,7 +133,4 @@
       <Name>Contacts Agenda</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\fastFood.png" />
-  </ItemGroup>
 </Project>
