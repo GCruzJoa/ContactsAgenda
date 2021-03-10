@@ -28,10 +28,6 @@ namespace Contacts_Agenda.ViewModels
         {
             Contacts = new ObservableCollection<Contact>
             {
-                //new Contact("Gabriel", "8295566856"),
-                //new Contact("Katherine", "8294545656"),
-                //new Contact("Javier", "8294545656"),
-                //new Contact("Jaydi", "8494545656")
             };
                        
             AddCommand = new Command(OnAddContact);
@@ -75,14 +71,6 @@ namespace Contacts_Agenda.ViewModels
         private async void OnAddContact()
         {
             await App.Current.MainPage.Navigation.PushAsync(new AddContactPage(Contacts));
-            //var name = await App.Current.MainPage.DisplayPromptAsync("Add Contact", "Type the new contact's name", "Ok");
-            //var phoneNumber = await App.Current.MainPage.DisplayPromptAsync("Add Number", "Type the new contact's number", "Ok", keyboard: Keyboard.Numeric);
-            //Contacts.Add(new Contact(name, phoneNumber));
         }
-
-        //private async void OnContact(Contact contact)
-        //{
-        //    await App.Current.MainPage.DisplayAlert("Contact", contact.Name, "Ok");
-        //}
     }
 }

@@ -10,7 +10,6 @@ namespace Contact_Agenda
         public App()
         {
             InitializeComponent();
-            //MainPage = new MainPage();
             MainPage = new NavigationPage(new ContactsHomePage());
         }
 
