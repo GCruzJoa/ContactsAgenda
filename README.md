@@ -6,20 +6,20 @@ Contacts Agenda App developed with Xamarin Forms.
 <p align="center">
  <img width="300" height:"300" src="App Screenshots/1.jpg" title="Captura 1"/>
  <img width="300" height:"300" src="App Screenshots/2.jpg" title="Captura 2"/> 
+
+</p>
+<p align="center">
  <img width="300" height:"300" src="App Screenshots/3.jpg" title="Captura 3"/>
-</p>
-
-<p align="center">
  <img width="300" height:"300" src="App Screenshots/4.jpg" title="Captura 4"/> 
+
+</p>
+<p align="center">
  <img width="300" height:"300" src="App Screenshots/5.jpg" title="Captura 5"/> 
-</p>
-
-<p align="center">
  <img width="300" height:"300" src="App Screenshots/6.jpg" title="Captura 6"/> 
+ <img width="300" height:"300" src="App Screenshots/7.jpg" title="Captura 7"/>
 </p>
 
 <p align="center">
- <img width="300" height:"300" src="App Screenshots/7.jpg" title="Captura 7"/>
  <img width="300" height:"300" src="App Screenshots/8.jpg" title="Captura 8"/> 
 </p>
 
