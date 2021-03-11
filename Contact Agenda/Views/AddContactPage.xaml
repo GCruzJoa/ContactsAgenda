@@ -6,7 +6,7 @@
     <ScrollView>
         <StackLayout Margin="20">
             <Entry Text="{Binding Name}" Placeholder="Name"/>
-            <Entry Text="{Binding PhoneNumber}" Placeholder="Phone Number"/>
+            <Entry Text="{Binding PhoneNumber}" Placeholder="Phone Number" Keyboard="Numeric"/>
             <Button Text="Add" Style="{StaticResource buttonStyle}" Command="{Binding OnAddCommand}" VerticalOptions="End"/>
         </StackLayout>
     </ScrollView>

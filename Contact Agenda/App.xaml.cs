@@ -11,6 +11,7 @@ namespace Contact_Agenda
         {
             InitializeComponent();
             MainPage = new NavigationPage(new ContactsHomePage());
+            //MainPage = new GoogleUIPage();
         }
 
         protected override void OnStart()
